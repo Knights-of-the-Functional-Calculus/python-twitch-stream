@@ -130,7 +130,7 @@ class TwitchOutputStream(object):
             '-s', '%dx%d' % (self.width, self.height),
             '-preset', 'ultrafast', '-tune', 'zerolatency',
             '-crf', '23',
-            '-pix_fmt', 'bgr24',
+            '-pix_fmt', 'yuv420p',
             # '-force_key_frames', r'expr:gte(t,n_forced*2)',
             '-minrate', '3000k', '-maxrate', '3000k',
             '-bufsize', '12000k',
