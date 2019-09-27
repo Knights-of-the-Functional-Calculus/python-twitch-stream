@@ -123,13 +123,14 @@ class TwitchOutputStream(object):
             ])
         command.extend([
             # VIDEO CODEC PARAMETERS
-            '-vcodec', 'libx264',
+            '-c:v', 'h264_nvenc', 
+            # '-vcodec', 'libx264',
             '-r', '%d' % self.fps,
             '-b:v', '3000k',
             '-s', '%dx%d' % (self.width, self.height),
-            '-preset', 'faster', '-tune', 'zerolatency',
+            '-preset', 'ultrafast', '-tune', 'zerolatency',
             '-crf', '23',
-            '-pix_fmt', 'yuv420p',
+            '-pix_fmt', 'bgr24',
             # '-force_key_frames', r'expr:gte(t,n_forced*2)',
             '-minrate', '3000k', '-maxrate', '3000k',
             '-bufsize', '12000k',
